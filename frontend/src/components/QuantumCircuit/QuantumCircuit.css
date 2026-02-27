@@ -1,0 +1,68 @@
+.qc-wrapper {
+  margin-top: 1rem;
+}
+
+.qc-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.qc-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.qc-scroll {
+  overflow-x: auto;
+  padding: 0.5rem 0;
+  margin-bottom: 0.75rem;
+}
+
+.qc-svg {
+  display: block;
+  min-width: 100%;
+}
+
+.qc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(108, 92, 231, 0.1);
+}
+
+.qc-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.qc-legend-swatch {
+  width: 16px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid;
+}
+
+.qc-legend-swatch--classical {
+  background: rgba(108, 92, 231, 0.15);
+  border-color: rgba(108, 92, 231, 0.5);
+}
+
+.qc-legend-swatch--split {
+  background: rgba(108, 92, 231, 0.1);
+  border-color: rgba(108, 92, 231, 0.4);
+  border-style: dashed;
+}
+
+.qc-legend-wire {
+  color: var(--text-secondary);
+  opacity: 0.4;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+}

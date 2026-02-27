@@ -1,0 +1,157 @@
+.outcome-panel {
+  display: flex;
+  flex-direction: column;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.op-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.op-count {
+  font-size: 0.65rem;
+  font-weight: 600;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.15rem 0.45rem;
+  border-radius: 10px;
+  line-height: 1;
+}
+
+.op-empty {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.op-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.op-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid rgba(108, 92, 231, 0.06);
+  transition: border-color 0.2s ease;
+}
+
+.op-item:hover {
+  border-color: rgba(108, 92, 231, 0.2);
+}
+
+.op-item-left {
+  flex-shrink: 0;
+}
+
+.op-item-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.op-item-prob {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.op-item-pct {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.op-item-bar-track {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.op-item-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--color-x));
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.op-badge {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.12rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.op-badge--x {
+  background: rgba(74, 158, 255, 0.12);
+  color: var(--color-x);
+  border: 1px solid rgba(74, 158, 255, 0.2);
+}
+
+.op-badge--o {
+  background: rgba(255, 74, 106, 0.12);
+  color: var(--color-o);
+  border: 1px solid rgba(255, 74, 106, 0.2);
+}
+
+.op-badge--draw {
+  background: rgba(108, 92, 231, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(108, 92, 231, 0.2);
+}
+
+/* Mini board */
+.mini-board {
+  display: grid;
+  gap: 1px;
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.mini-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.45rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.mini-cell--x {
+  background: rgba(74, 158, 255, 0.2);
+  color: var(--color-x);
+}
+
+.mini-cell--o {
+  background: rgba(255, 74, 106, 0.2);
+  color: var(--color-o);
+}
+
+.mini-cell--empty {
+  background: rgba(58, 58, 74, 0.3);
+  color: var(--text-secondary);
+}

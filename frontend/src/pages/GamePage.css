@@ -1,0 +1,173 @@
+.game-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.gp-error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 74, 106, 0.1);
+  border: 1px solid rgba(255, 74, 106, 0.25);
+  border-radius: 8px;
+  color: var(--color-o);
+  font-size: 0.85rem;
+}
+
+.gp-error-close {
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  background: rgba(255, 74, 106, 0.15);
+  color: var(--color-o);
+  border: 1px solid rgba(255, 74, 106, 0.2);
+}
+
+.gp-error-close:hover {
+  background: rgba(255, 74, 106, 0.25);
+}
+
+.gp-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr 280px;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.gp-col--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.gp-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem !important;
+  min-height: 300px;
+}
+
+.gp-placeholder-icon {
+  font-size: 3.5rem;
+  font-style: italic;
+  color: var(--accent);
+  text-shadow: 0 0 30px rgba(108, 92, 231, 0.4);
+  margin-bottom: 1rem;
+}
+
+.gp-placeholder-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.gp-placeholder-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+/* Educational section */
+.gp-edu {
+  margin-top: 1rem;
+}
+
+.gp-edu-heading {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.gp-edu-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+
+.gp-edu-card {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.gp-edu-card-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.1rem;
+  background: transparent;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.gp-edu-card-header:hover {
+  background: rgba(108, 92, 231, 0.05);
+}
+
+.gp-edu-card-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.gp-edu-card-toggle {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+}
+
+.gp-edu-card-body {
+  padding: 0 1.1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.gp-edu-card-body p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.gp-edu-card-body strong {
+  color: var(--text-primary);
+}
+
+.gp-edu-card-body em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .gp-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .gp-col--left {
+    order: 1;
+  }
+
+  .gp-col--center {
+    order: 0;
+  }
+
+  .gp-col--right {
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .gp-edu-cards {
+    grid-template-columns: 1fr;
+  }
+}

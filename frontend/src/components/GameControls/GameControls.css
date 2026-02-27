@@ -1,0 +1,253 @@
+.game-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.gc-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.gc-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.gc-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.gc-chips {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.gc-chip {
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid rgba(108, 92, 231, 0.12);
+  transition: all 0.2s ease;
+}
+
+.gc-chip:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.gc-chip--active {
+  background: rgba(108, 92, 231, 0.2);
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.gc-chip--x.gc-chip--active {
+  background: rgba(74, 158, 255, 0.15);
+  border-color: var(--color-x);
+  color: var(--color-x);
+}
+
+.gc-chip--o.gc-chip--active {
+  background: rgba(255, 74, 106, 0.15);
+  border-color: var(--color-o);
+  color: var(--color-o);
+}
+
+.gc-hint {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.gc-start-btn {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.gc-status {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gc-current-player {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.gc-player-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.gc-player-badge--x {
+  color: var(--color-x);
+  background: rgba(74, 158, 255, 0.1);
+  border: 1px solid rgba(74, 158, 255, 0.25);
+}
+
+.gc-player-badge--o {
+  color: var(--color-o);
+  background: rgba(255, 74, 106, 0.1);
+  border: 1px solid rgba(255, 74, 106, 0.25);
+}
+
+.gc-turn-count {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.gc-turn-text {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.gc-progress-bar {
+  height: 4px;
+  background: var(--bg-secondary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.gc-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--color-x));
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.gc-toggle {
+  display: flex;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 3px;
+  border: 1px solid rgba(108, 92, 231, 0.12);
+}
+
+.gc-toggle-btn {
+  flex: 1;
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.gc-toggle-btn--active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(108, 92, 231, 0.3);
+}
+
+.gc-split-controls {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.gc-split-count {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 500;
+  text-align: center;
+}
+
+.gc-split-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.gc-split-confirm {
+  flex: 1;
+}
+
+.gc-split-clear {
+  flex-shrink: 0;
+}
+
+.gc-new-btn {
+  width: 100%;
+}
+
+.gc-collapse-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  animation: pulse-glow 2s ease-in-out infinite;
+  letter-spacing: 0.03em;
+}
+
+.gc-description {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.gc-result {
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.gc-result--x {
+  background: rgba(74, 158, 255, 0.1);
+  border: 1px solid rgba(74, 158, 255, 0.3);
+}
+
+.gc-result--o {
+  background: rgba(255, 74, 106, 0.1);
+  border: 1px solid rgba(255, 74, 106, 0.3);
+}
+
+.gc-result--draw {
+  background: rgba(108, 92, 231, 0.1);
+  border: 1px solid rgba(108, 92, 231, 0.3);
+}
+
+.gc-result-text {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.gc-result--x .gc-result-text {
+  color: var(--color-x);
+  text-shadow: 0 0 20px rgba(74, 158, 255, 0.4);
+}
+
+.gc-result--o .gc-result-text {
+  color: var(--color-o);
+  text-shadow: 0 0 20px rgba(255, 74, 106, 0.4);
+}
+
+.gc-result--draw .gc-result-text {
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(108, 92, 231, 0.4);
+}

@@ -1,0 +1,63 @@
+.board-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.board {
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  border-radius: 14px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 0 30px rgba(108, 92, 231, 0.08),
+    inset 0 0 30px rgba(108, 92, 231, 0.03);
+  transition: box-shadow 0.3s ease;
+}
+
+.board:hover {
+  box-shadow:
+    0 0 40px rgba(108, 92, 231, 0.12),
+    inset 0 0 30px rgba(108, 92, 231, 0.05);
+}
+
+.board--size-2 {
+  width: 280px;
+  height: 280px;
+}
+
+.board--size-3 {
+  width: 360px;
+  height: 360px;
+}
+
+.board--size-4 {
+  width: 440px;
+  height: 440px;
+}
+
+.board--collapsed {
+  box-shadow:
+    0 0 50px rgba(108, 92, 231, 0.2),
+    inset 0 0 30px rgba(108, 92, 231, 0.05);
+}
+
+@media (max-width: 600px) {
+  .board--size-2 {
+    width: 240px;
+    height: 240px;
+  }
+
+  .board--size-3 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .board--size-4 {
+    width: 360px;
+    height: 360px;
+  }
+}
