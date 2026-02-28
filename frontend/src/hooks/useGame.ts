@@ -123,14 +123,25 @@ export function useGame(): UseGameReturn {
   );
 
   const confirmSplitSelection = useCallback(() => {
+    if (!game) return;
     if (selectedSquares.length < 2) {
       setError('Select at least 2 squares for a split move.');
+      return;
+    }
+    const totalEmpty = selectedSquares.reduce(
+      (sum, sq) => sum + game.board[sq].probEmpty,
+      0
+    );
+    if (totalEmpty < 0.995) {
+      setError(
+        `Selected squares only have ${Math.round(totalEmpty * 100)}% total empty probability. Select more squares to reach at least 100%.`
+      );
       return;
     }
     setSplitSquares([...selectedSquares]);
     setShowSplitModal(true);
     setError(null);
-  }, [selectedSquares]);
+  }, [game, selectedSquares]);
 
   const makeSplitMove = useCallback(
     async (allocations: Allocation[]) => {
@@ -141,10 +152,27 @@ export function useGame(): UseGameReturn {
       setSplitSquares([]);
       setSelectedSquares([]);
       try {
-        const roundedAllocations = allocations.map((a) => ({
-          square: a.square,
-          prob: Math.round(a.prob * 1000) / 1000,
-        }));
+        // Round to 3 decimal places, then adjust the largest allocation
+        // so the total is exactly 1.0 (avoids floating-point drift)
+        const roundedAllocations = allocations
+          .filter((a) => a.prob > 0.0005)
+          .map((a) => ({
+            square: a.square,
+            prob: Math.round(a.prob * 1000) / 1000,
+          }));
+        const roundedSum = roundedAllocations.reduce((s, a) => s + a.prob, 0);
+        const drift = Math.round((1.0 - roundedSum) * 1000) / 1000;
+        if (Math.abs(drift) > 0 && roundedAllocations.length > 0) {
+          // Add drift to the largest allocation to correct
+          let maxIdx = 0;
+          for (let i = 1; i < roundedAllocations.length; i++) {
+            if (roundedAllocations[i].prob > roundedAllocations[maxIdx].prob) {
+              maxIdx = i;
+            }
+          }
+          roundedAllocations[maxIdx].prob =
+            Math.round((roundedAllocations[maxIdx].prob + drift) * 1000) / 1000;
+        }
         const updatedGame = await api.makeMove(game.id, {
           type: 'split',
           allocations: roundedAllocations,

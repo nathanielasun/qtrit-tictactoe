@@ -165,28 +165,39 @@ export function GameControls({
               ? 'Click a fully empty cell to place your mark.'
               : 'Click 2 or more cells, then set probabilities.'}
           </p>
-          {moveMode === 'split' && selectedSquares.length > 0 && (
-            <div className="gc-split-controls fade-in">
-              <p className="gc-split-count">
-                {selectedSquares.length} square{selectedSquares.length !== 1 ? 's' : ''} selected
-              </p>
-              <div className="gc-split-buttons">
-                <button
-                  className="btn btn-primary gc-split-confirm"
-                  onClick={onConfirmSplit}
-                  disabled={selectedSquares.length < 2}
-                >
-                  Set Probabilities
-                </button>
-                <button
-                  className="btn btn-secondary gc-split-clear"
-                  onClick={onClearSelection}
-                >
-                  Clear
-                </button>
+          {moveMode === 'split' && selectedSquares.length > 0 && (() => {
+            const totalEmpty = selectedSquares.reduce(
+              (sum, sq) => sum + game.board[sq].probEmpty,
+              0
+            );
+            const hasEnough = totalEmpty >= 0.995;
+            const totalPct = Math.round(totalEmpty * 100);
+            return (
+              <div className="gc-split-controls fade-in">
+                <p className="gc-split-count">
+                  {selectedSquares.length} square{selectedSquares.length !== 1 ? 's' : ''} selected
+                </p>
+                <p className={`gc-split-capacity ${hasEnough ? 'gc-split-capacity--ok' : 'gc-split-capacity--low'}`}>
+                  {totalPct}% available{!hasEnough && ' — select more squares'}
+                </p>
+                <div className="gc-split-buttons">
+                  <button
+                    className="btn btn-primary gc-split-confirm"
+                    onClick={onConfirmSplit}
+                    disabled={selectedSquares.length < 2 || !hasEnough}
+                  >
+                    Set Probabilities
+                  </button>
+                  <button
+                    className="btn btn-secondary gc-split-clear"
+                    onClick={onClearSelection}
+                  >
+                    Clear
+                  </button>
+                </div>
               </div>
-            </div>
-          )}
+            );
+          })()}
         </div>
 
         <button
